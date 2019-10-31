@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import * as types from './action-types';
+// import * as types from './action-types';
 let initState = {
     category: 'all', //分类
     sliders: [], //轮播
@@ -14,48 +14,8 @@ let initState = {
 }
 
 const selectedPayload = (state = initState, action) => {
-    switch (action.type) {
-        case types.SET_HOME_SHOW:
-            return {
-                ...state,
-                show: {
-                    list: [...state.show.list, ...action.payload.list],
-                    hasMore: action.payload.list.length > 0 ? true : false,
-                    loading: false,
-                    offset: state.show.offset + 5
-                }
-            }
-        case types.CHANGE_CATEGORY:
-            return {
-                ...state,
-                category: action.payload
-            };
-        case types.SET_HOME_SLIDERS:
-            return {
-                ...state,
-                sliders: action.payload
-            };
-        case types.SET_HOME_MENU:
-            return {
-                ...state,
-                menu: action.payload
-            };
-        case types.SET_LOGIN_TYPE:
-            return {
-                ...state,
-                isLogin: true
-            };
-        case types.SET_PULLLOAD_ACTION:
-            return {
-                ...state,
-                show: {
-                    ...state.show,
-                    action: action.payload
-                }
-            };
-        default:
             return state
-    }
+    
 }
 
 export default combineReducers({
