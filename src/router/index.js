@@ -10,7 +10,6 @@ import Login from '../pages/login';
 class Routes extends React.Component{
     render(){
         return (
-            <>
             <HashRouter>
                 <Switch>
                     <Route exact path='/' render={(props) => <Home {...props} />} />
@@ -21,7 +20,6 @@ class Routes extends React.Component{
                     <Route path="/login" render={(props) => <Login {...props} />}  />
                 </Switch>
             </HashRouter>
-            </>
         )
     }
 };
