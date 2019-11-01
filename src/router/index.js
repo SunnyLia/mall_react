@@ -1,6 +1,7 @@
 import React from 'react';
 import { HashRouter, Switch, Route } from 'react-router-dom';
 import PrivateRoute from './redirect'
+import Main from '../pages';
 import Home from '../pages/home';
 import Find from '../pages/find';
 import Cart from '../pages/cart';
@@ -12,7 +13,7 @@ class Routes extends React.Component{
         return (
             <HashRouter>
                 <Switch>
-                    <Route exact path='/' render={(props) => <Home {...props} />} />
+                    <Route exact path='/' render={(props) => <Main {...props} />} />
                     <Route path="/home" render={(props) => <Home {...props} />} />
                     <Route path="/find" render={(props) => <Find {...props} />} />
                     <Route path="/cart" render={(props) => <Cart {...props} />} />
