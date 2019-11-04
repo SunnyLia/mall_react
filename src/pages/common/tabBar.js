@@ -1,9 +1,6 @@
 import React from 'react';
 import {TabBar} from 'antd-mobile';
-import Home from './home';
-import Cart from './cart';
-import Find from './find';
-import Mine from './mine';
+import history from './history';
 class Main extends React.Component {
     constructor(props) {
         super(props);
@@ -28,6 +25,7 @@ class Main extends React.Component {
                     selected={this.state.selectedTab === 'Home'}
                     onPress={() => {
                         this.setState({selectedTab: 'Home'});
+                        history.push("/home")
                     }}>
                 </TabBar.Item>
                 <TabBar.Item
@@ -38,6 +36,7 @@ class Main extends React.Component {
                     selected={this.state.selectedTab === 'Find'}
                     onPress={() => {
                         this.setState({selectedTab: 'Find'});
+                        history.push("/find")
                     }}>
                 </TabBar.Item>
                 <TabBar.Item
@@ -48,6 +47,7 @@ class Main extends React.Component {
                     selected={this.state.selectedTab === 'Cart'}
                     onPress={() => {
                         this.setState({selectedTab: 'Cart'});
+                        history.push("/cart")
                     }}>
                 </TabBar.Item>
                 <TabBar.Item
@@ -58,6 +58,7 @@ class Main extends React.Component {
                     selected={this.state.selectedTab === 'Mine'}
                     onPress={() => {
                         this.setState({selectedTab: 'Mine'});
+                        history.push("/mine")
                     }}>
                 </TabBar.Item>
             </TabBar>
