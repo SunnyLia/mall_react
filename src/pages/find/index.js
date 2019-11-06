@@ -1,8 +1,14 @@
 import React from 'react';
 
 class Cart extends React.Component{
+    goBackPage = () => {
+        this.props.history.goBack()
+        
+      }
+  
     render (){
-        return <>"find111"</>
+        
+        return <button onClick={this.goBackPage}>"find111"</button>
     }
     
 }

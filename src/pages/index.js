@@ -1,67 +1,25 @@
-import React from 'react';
-import {TabBar} from 'antd-mobile';
+import React, {Fragment} from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import PrivateRoute from '../router/redirect';
 import Home from './home';
 import Cart from './cart';
 import Find from './find';
 import Mine from './mine';
+import TabBar from './components/tabBar';
 class Main extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            selectedTab: 'Home'
-        };
-    }
-
     render() {
         return (
-            <div style={{ position: 'fixed', height: '100%', width: '100%', top: 0 }}>
-                <TabBar
-                unselectedTintColor="#949494"
-                tintColor="#33A3F4"
-                barTintColor="white"
-                tabBarPosition="bottom">
-                <TabBar.Item
-                    title="Home"
-                    key="Home"
-                    icon={< div style = {{ width: '22px', height: '22px', background: 'url(https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg) center center / 21px 21px no-repeat' }}/>}
-                    selectedIcon={< div style = {{ width: '22px', height: '22px', background: 'url(https://zos.alipayobjects.com/rmsportal/iSrlOTqrKddqbOmlvUfq.svg) center center / 21px 21px no-repeat' }}/>}
-                    selected={this.state.selectedTab === 'Home'}
-                    onPress={() => {
-                        this.setState({selectedTab: 'Home'});
-                    }}>
-                </TabBar.Item>
-                <TabBar.Item
-                    icon={< div style = {{ width: '22px', height: '22px', background: 'url(https://gw.alipayobjects.com/zos/rmsportal/BTSsmHkPsQSPTktcXyTV.svg) center center / 21px 21px no-repeat' }}/>}
-                    selectedIcon={< div style = {{ width: '22px', height: '22px', background: 'url(https://gw.alipayobjects.com/zos/rmsportal/ekLecvKBnRazVLXbWOnE.svg) center center / 21px 21px no-repeat' }}/>}
-                    title="Find"
-                    key="Find"
-                    selected={this.state.selectedTab === 'Find'}
-                    onPress={() => {
-                        this.setState({selectedTab: 'Find'});
-                    }}>
-                </TabBar.Item>
-                <TabBar.Item
-                    icon={< div style = {{ width: '22px', height: '22px', background: 'url(https://zos.alipayobjects.com/rmsportal/psUFoAMjkCcjqtUCNPxB.svg) center center / 21px 21px no-repeat' }}/>}
-                    selectedIcon={< div style = {{ width: '22px', height: '22px', background: 'url(https://zos.alipayobjects.com/rmsportal/IIRLrXXrFAhXVdhMWgUI.svg) center center / 21px 21px no-repeat' }}/>}
-                    title="Cart"
-                    key="Cart"
-                    selected={this.state.selectedTab === 'Cart'}
-                    onPress={() => {
-                        this.setState({selectedTab: 'Cart'});
-                    }}>
-                </TabBar.Item>
-                <TabBar.Item
-                    icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg' }}
-                    selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg'}}
-                    title="Mine"
-                    key="Mine"
-                    selected={this.state.selectedTab === 'Mine'}
-                    onPress={() => {
-                        this.setState({selectedTab: 'Mine'});
-                    }}>
-                </TabBar.Item>
-            </TabBar>
-            </div>
+            <Fragment>
+                <Switch>
+                    <Route exact path="/" component={Home}></Route>
+                    <Route path="/home" component={Home}></Route>
+                    <Route path="/cart" component={Cart}></Route>
+                    <Route path="/find" component={Find}></Route>
+                    <PrivateRoute path="/mine" component={Mine} />
+                    <Redirect to="/" />
+                </Switch>
+                <TabBar history={this.props}/>
+            </Fragment>
         );
     }
 }
