@@ -1,15 +1,17 @@
 import React from 'react';
-import { WingBlank, WhiteSpace, List, InputItem, Button } from 'antd-mobile';
-class Cart extends React.Component {
+import { WingBlank, WhiteSpace, List, InputItem, Button ,Toast} from 'antd-mobile';
+import { createForm } from 'rc-form';
+class Login extends React.Component {
     onSubmit = () => {
         this.props.form.validateFields({ force: true }, (error) => {
             if (!error) {
-                console.log(this.props.form.getFieldsValue());
+                this.props.history.push("/mine")
             } else {
-                alert('Validation failed');
+                Toast.info('账户名或密码错误！', 3, null, false);
             }
         });
     }
+    
     validateAccount = (rule, value, callback) => {
         if (value && value.length > 4) {
             callback();
@@ -18,8 +20,7 @@ class Cart extends React.Component {
         }
     }
     render() {
-        console.log(this.props);
-        const { getFieldProps, getFieldError } = this.props.form;
+        const { getFieldProps } = this.props.form;
 
         return (
             <div style={bgName}>
@@ -32,22 +33,23 @@ class Cart extends React.Component {
                         <InputItem
                             {...getFieldProps('account', {
                                 rules: [
-                                    { required: true, message: 'Please input account' },
+                                    { required: true, message: '请输入您的账号' },
                                     { validator: this.validateAccount },
                                 ],
                             })}
                             clear
-                            error={!!getFieldError('account')}
-                            onErrorClick={() => {
-                                alert(getFieldError('account').join('、'));
-                            }}
-                            placeholder="请输入您的账号">
+                            placeholder="admin">
                             <div style={{ backgroundImage: 'url(assets/login_acc.png)', backgroundSize: 'cover', height: '30px', width: '30px' }} />
                         </InputItem>
                         <InputItem
-                            {...getFieldProps('password')}
+                            {...getFieldProps('password', {
+                                rules: [
+                                    { required: true, message: '请输入您的密码' }
+                                ],
+                            })}
                             type="password"
-                            placeholder="请输入您的密码">
+                            clear
+                            placeholder="123">
                             <div style={{ backgroundImage: 'url(assets/login_pas.png)', backgroundSize: 'cover', height: '26px', width: '26px' }} />
                         </InputItem>
                     </List>
@@ -59,7 +61,8 @@ class Cart extends React.Component {
     }
 
 }
-export default Cart;
+const BasicInputWrapper = createForm()(Login);
+export default BasicInputWrapper;
 const bgName = {
     width: '100%',
     height: '100%',
