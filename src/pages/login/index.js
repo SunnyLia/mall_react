@@ -3,56 +3,55 @@ import { WingBlank, WhiteSpace, List, InputItem, Button ,Toast} from 'antd-mobil
 import { createForm } from 'rc-form';
 class Login extends React.Component {
     onSubmit = () => {
-        this.props.form.validateFields({ force: true }, (error) => {
+        this.props.form.validateFields({ force: true }, (error,value) => {          
             if (!error) {
-                this.props.history.push("/mine")
+                if((value.account !== "admin") || (value.password !== "123")){
+                    Toast.info('用户名或密码错误了哦~', 3, null, false);
+                }else{
+                    this.props.history.push('/mine')
+                }
             } else {
-                Toast.info('账户名或密码错误！', 3, null, false);
+                Toast.info('还有信息没填写完哦~', 3, null, false);
             }
         });
     }
     
-    validateAccount = (rule, value, callback) => {
-        if (value && value.length > 4) {
-            callback();
-        } else {
-            callback(new Error('At least four characters for account'));
-        }
-    }
     render() {
-        const { getFieldProps } = this.props.form;
-
+        const { getFieldProps, getFieldError } = this.props.form;
         return (
             <div style={bgName}>
                 <WingBlank size="lg" style={{ marginTop: '100px' }}>
-                    <img src="assets/login_pic.png" />
+                    <img src="assets/login_pic.png" alt=""/>
                 </WingBlank>
                 <WhiteSpace size="lg" />
                 <WingBlank size="lg">
-                    <List>
-                        <InputItem
-                            {...getFieldProps('account', {
-                                rules: [
-                                    { required: true, message: '请输入您的账号' },
-                                    { validator: this.validateAccount },
-                                ],
-                            })}
-                            clear
-                            placeholder="admin">
-                            <div style={{ backgroundImage: 'url(assets/login_acc.png)', backgroundSize: 'cover', height: '30px', width: '30px' }} />
-                        </InputItem>
-                        <InputItem
-                            {...getFieldProps('password', {
-                                rules: [
-                                    { required: true, message: '请输入您的密码' }
-                                ],
-                            })}
-                            type="password"
-                            clear
-                            placeholder="123">
-                            <div style={{ backgroundImage: 'url(assets/login_pas.png)', backgroundSize: 'cover', height: '26px', width: '26px' }} />
-                        </InputItem>
-                    </List>
+                    <form>
+                        <List>
+                            <InputItem
+                                {...getFieldProps('account', {
+                                    rules: [
+                                        { required: true, message: '请输入您的账号' }
+                                    ],
+                                })}
+                                clear
+                                error={!!getFieldError('account')}
+                                placeholder="admin">
+                                <div style={{ backgroundImage: 'url(assets/login_acc.png)', backgroundSize: 'cover', height: '30px', width: '30px' }} />
+                            </InputItem>
+                            <InputItem
+                                {...getFieldProps('password', {
+                                    rules: [
+                                        { required: true, message: '请输入您的密码' }
+                                    ],
+                                })}
+                                type="password"
+                                clear
+                                error={!!getFieldError('password')}
+                                placeholder="123">
+                                <div style={{ backgroundImage: 'url(assets/login_pas.png)', backgroundSize: 'cover', height: '26px', width: '26px' }} />
+                            </InputItem>
+                        </List>
+                    </form>
                     <WhiteSpace size="lg" />
                     <Button type="primary" onClick={this.onSubmit}>确认</Button>
                 </WingBlank>

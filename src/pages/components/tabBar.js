@@ -1,6 +1,5 @@
 import React from 'react';
 import { TabBar } from 'antd-mobile';
-import history from './history';
 class Main extends React.Component {
     constructor(props) {
         super(props);
@@ -37,7 +36,7 @@ class Main extends React.Component {
     calcPath (key){
         let pathName = this.props.history.location.pathname;
         
-        if((pathName == "/" && key == "home") || (pathName.indexOf(key) != -1)){
+        if((pathName === "/" && key === "home") || (pathName.indexOf(key) !== -1)){
             return true
         }else{
             return false
