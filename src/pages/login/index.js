@@ -3,9 +3,6 @@ import { WingBlank, WhiteSpace, List, InputItem, Button ,Toast} from 'antd-mobil
 import { createForm } from 'rc-form';
 
 class Login extends React.Component {
-    constructor(props) {
-        super(props);
-    }
     onSubmit = () => {
         this.props.form.validateFields({ force: true }, (error,value) => {          
             if (!error) {
