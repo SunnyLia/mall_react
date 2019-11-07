@@ -13,14 +13,23 @@
     border: 1px solid #ddd;
     border-radius: 16px;
     padding: 0 7px;
+    background: #fff;
 }
 
 .my-carousel .v-item {
-    height: 36px;
-    line-height: 36px;
+    height: 32px;
+    line-height: 32px;
     padding-left: 10px;
-  }
+}
 
+.am-tabs-default-bar{
+    background-color:transparent !important
+}
+
+/* html:not([data-scale]) .am-tabs-default-bar-top .am-tabs-default-bar-tab::after{
+        background-color: transparent !important
+}
+ */
 @keyframes upAnimation {
 	0% {
 		transform: rotate(0deg);
