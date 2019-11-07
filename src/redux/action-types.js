@@ -1,2 +1,2 @@
-export const SET_LOGIN_TYPE = 'SET_LOGIN_TYPE';//登錄状态
+export const IS_LOGIN = 'IS_LOGIN';//登錄状态
 

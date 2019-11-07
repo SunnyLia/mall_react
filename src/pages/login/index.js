@@ -1,17 +1,23 @@
 import React from 'react';
 import { WingBlank, WhiteSpace, List, InputItem, Button ,Toast} from 'antd-mobile';
 import { createForm } from 'rc-form';
+
 class Login extends React.Component {
+    constructor(props) {
+        super(props);
+    }
     onSubmit = () => {
         this.props.form.validateFields({ force: true }, (error,value) => {          
             if (!error) {
                 if((value.account !== "admin") || (value.password !== "123")){
                     Toast.info('用户名或密码错误了哦~', 3, null, false);
                 }else{
-                    this.props.history.push('/mine')
+                    let { from, setLogin } = this.props.location.state
+                    setLogin(true)
+                    this.props.history.push(from)
                 }
             } else {
-                Toast.info('还有信息没填写完哦~', 3, null, false);
+                Toast.info('信息都还没填写完哦~', 3, null, false);
             }
         });
     }
