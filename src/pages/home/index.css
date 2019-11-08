@@ -67,6 +67,15 @@ html:not([data-scale]) .am-grid.am-grid-line .am-flexbox .am-flexbox-item:first-
 .am-grid .slider-decorator-0{
 	bottom: -14px!important;
 }
+.secKill{
+	font-weight: normal;
+    color: red;
+    margin-left: 10px;
+    border: 1px solid red;
+    padding: 0 5px;
+	border-radius: 12px;
+	font-size: 12px;
+}
 @keyframes upAnimation {
 	0% {
 		transform: rotate(0deg);
