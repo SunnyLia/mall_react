@@ -385,16 +385,33 @@ class Home extends React.Component {
                 
                 </WingBlank>
                 <WhiteSpace size="lg"/>
-                <WingBlank size="md" style={{width:'100%'}}>
+                <WingBlank size="md">
+                <Flex wrap="wrap" style={{width:'100%'}}>
                     {
                         this.state.lists.map((v,i)=>(
                             v.prods.map((val,ind)=>(
-                                <div key={i+""+ind} style={{width:'50%'}}>
-                                    <img src={val.icon} alt=""/>
+                                <div key={i+""+ind} className="listItem">
+                                    <a>
+                                    <img src={val.icon} style={{width:'100%'}} alt=""/>
+                                    <WingBlank size="md">
+                                        <div className="textWords">
+                                            <img style={{height: '14px',paddingRight:'6px'}} src="//img11.360buyimg.com/jdphoto/s48x28_jfs/t18820/32/891260489/1085/d4b6cf2c/5aadf9dbN7043e607.png" alt=""/>
+                                            军军军军军军军军军军我是小公主小公主小姐姐
+                                        </div>
+                                        <div className="manjian">
+                                            每满200减20
+                                        </div>
+                                        <div className="price">
+                                            ¥128.00 
+                                            <span>110人付款</span>
+                                        </div>
+                                    </WingBlank>
+                                    </a>
                                 </div>
                             ))
                         ))
                     }
+                    </Flex>
                 </WingBlank>
             </div>
         )
