@@ -6,6 +6,7 @@ class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            propList:[],
             searchValue: [
                 { 
                     title: "通勤出街显美小包",
@@ -216,6 +217,7 @@ class Home extends React.Component {
         const data1 = Array.from(new Array(this.state.tabs.length)).map((v,i) => ({
             title:this.state.tabs[i].text ,
         }));
+
         return (
             <div className="homePage" style={{marginBottom:'50px'}}>
                 <WhiteSpace />
@@ -329,7 +331,7 @@ class Home extends React.Component {
                             <div style={{width:'50%'}} key={i}>
                                 <div style={{fontWeight:'bold',padding: '8px 7px 4px'}}>{val.title}
                                 {
-                                    i==0 && (
+                                    i===0 && (
                                         <span className="secKill">00:00:00</span>
                                     )
                                 }
@@ -381,6 +383,18 @@ class Home extends React.Component {
                     ))
                 }
                 
+                </WingBlank>
+                <WhiteSpace size="lg"/>
+                <WingBlank size="md" style={{width:'100%'}}>
+                    {
+                        this.state.lists.map((v,i)=>(
+                            v.prods.map((val,ind)=>(
+                                <div key={i+""+ind} style={{width:'50%'}}>
+                                    <img src={val.icon} alt=""/>
+                                </div>
+                            ))
+                        ))
+                    }
                 </WingBlank>
             </div>
         )
