@@ -1,5 +1,5 @@
 import React ,{Fragment} from 'react';
-import { Flex, WingBlank, WhiteSpace, Carousel, Tabs ,Grid } from 'antd-mobile';
+import { Flex, WingBlank, WhiteSpace, Carousel, Tabs ,Grid ,NoticeBar} from 'antd-mobile';
 import "./index.css"
 
 class Home extends React.Component {
@@ -105,40 +105,19 @@ class Home extends React.Component {
                     prods:[
                         {
                             text:'平板电脑',
-                            img:'//m.360buyimg.com/n1/s150x150_jfs/t1/65000/23/14266/146571/5dbc0854E3c952de7/cce8829ec944181a.jpg!q70.jpg.dpg'
+                            icon:'//m.360buyimg.com/n1/s150x150_jfs/t1/65000/23/14266/146571/5dbc0854E3c952de7/cce8829ec944181a.jpg!q70.jpg.dpg'
                         },
                         {
                             text:'平板电脑',
-                            img:'//m.360buyimg.com/n1/s150x150_jfs/t17677/311/1731306712/38153/32cc1d8d/5ad40f09Ncd7d80d6.png!q70.jpg.dpg'
+                            icon:'//m.360buyimg.com/n1/s150x150_jfs/t17677/311/1731306712/38153/32cc1d8d/5ad40f09Ncd7d80d6.png!q70.jpg.dpg'
                         },
                         {
                             text:'平板电脑',
-                            img:'//m.360buyimg.com/n1/s150x150_jfs/t29566/227/1464891645/10350/a5b133e2/5ce20cdcNd9cdd972.jpg!q70.jpg.dpg'
+                            icon:'//m.360buyimg.com/n1/s150x150_jfs/t29566/227/1464891645/10350/a5b133e2/5ce20cdcNd9cdd972.jpg!q70.jpg.dpg'
                         },
                         {
                             text:'平板电脑',
-                            img:'//m.360buyimg.com/mobilecms/s150x150_jfs/t1/56939/39/1210/59272/5cefa52dE2f70588a/3174a20e743edd49.png!q70.jpg.dpg'
-                        }
-                    ]
-                },
-                {
-                    title:"精选会场",
-                    prods:[
-                        {
-                            text:'平板电脑',
-                            img:'//m.360buyimg.com/n1/s150x150_jfs/t29566/227/1464891645/10350/a5b133e2/5ce20cdcNd9cdd972.jpg!q70.jpg.dpg'
-                        },
-                        {
-                            text:'平板电脑',
-                            img:'//m.360buyimg.com/mobilecms/s150x150_jfs/t1/56939/39/1210/59272/5cefa52dE2f70588a/3174a20e743edd49.png!q70.jpg.dpg'
-                        },
-                        {
-                            text:'美妆爆品',
-                            img:'//m.360buyimg.com/mobilecms/s150x150_jfs/t1/38988/36/7707/54292/5cefa2b0E1cce5cfa/64e76ed6c67568bf.png!q70.jpg.dpg'
-                        },
-                        {
-                            text:'美妆爆品',
-                            img:'//m.360buyimg.com/mobilecms/s150x150_jfs/t1/71612/30/758/62076/5cefa5a6E2494c8c2/13aac3e0bb1b4e55.png!q70.jpg.dpg'
+                            icon:'//m.360buyimg.com/mobilecms/s150x150_jfs/t1/56939/39/1210/59272/5cefa52dE2f70588a/3174a20e743edd49.png!q70.jpg.dpg'
                         }
                     ]
                 },
@@ -147,19 +126,41 @@ class Home extends React.Component {
                     prods:[
                         {
                             text:'美妆爆品',
-                            img:'//m.360buyimg.com/mobilecms/s150x150_jfs/t1/50174/30/1230/9784/5cef98bfE318f8d24/4720dc4079dd568b.jpg!q70.jpg.dpg'
+                            icon:'//m.360buyimg.com/mobilecms/s150x150_jfs/t1/50174/30/1230/9784/5cef98bfE318f8d24/4720dc4079dd568b.jpg!q70.jpg.dpg'
                         },
                         {
                             text:'美妆爆品',
-                            img:'//m.360buyimg.com/mobilecms/s150x150_jfs/t1/34938/26/11155/70774/5cefa0c6E5a90edb2/47b686712510d44e.png!q70.jpg.dpg'
+                            icon:'//m.360buyimg.com/mobilecms/s150x150_jfs/t1/34938/26/11155/70774/5cefa0c6E5a90edb2/47b686712510d44e.png!q70.jpg.dpg'
                         },
                         {
                             text:'美妆爆品',
-                            img:'//m.360buyimg.com/mobilecms/s150x150_jfs/t1/38988/36/7707/54292/5cefa2b0E1cce5cfa/64e76ed6c67568bf.png!q70.jpg.dpg'
+                            icon:'//m.360buyimg.com/mobilecms/s150x150_jfs/t1/38988/36/7707/54292/5cefa2b0E1cce5cfa/64e76ed6c67568bf.png!q70.jpg.dpg'
                         },
                         {
                             text:'美妆爆品',
-                            img:'//m.360buyimg.com/mobilecms/s150x150_jfs/t1/71612/30/758/62076/5cefa5a6E2494c8c2/13aac3e0bb1b4e55.png!q70.jpg.dpg'
+                            icon:'//m.360buyimg.com/mobilecms/s150x150_jfs/t1/71612/30/758/62076/5cefa5a6E2494c8c2/13aac3e0bb1b4e55.png!q70.jpg.dpg'
+                        }
+                        
+                    ]
+                },
+                {
+                    title:"精选会场",
+                    prods:[
+                        {
+                            text:'平板电脑',
+                            icon:'//m.360buyimg.com/n1/s150x150_jfs/t29566/227/1464891645/10350/a5b133e2/5ce20cdcNd9cdd972.jpg!q70.jpg.dpg'
+                        },
+                        {
+                            text:'平板电脑',
+                            icon:'//m.360buyimg.com/mobilecms/s150x150_jfs/t1/56939/39/1210/59272/5cefa52dE2f70588a/3174a20e743edd49.png!q70.jpg.dpg'
+                        },
+                        {
+                            text:'美妆爆品',
+                            icon:'//m.360buyimg.com/mobilecms/s150x150_jfs/t1/38988/36/7707/54292/5cefa2b0E1cce5cfa/64e76ed6c67568bf.png!q70.jpg.dpg'
+                        },
+                        {
+                            text:'美妆爆品',
+                            icon:'//m.360buyimg.com/mobilecms/s150x150_jfs/t1/71612/30/758/62076/5cefa5a6E2494c8c2/13aac3e0bb1b4e55.png!q70.jpg.dpg'
                         }
                     ]
                 },
@@ -168,19 +169,19 @@ class Home extends React.Component {
                     prods:[
                         {
                             text:'美妆爆品',
-                            img:'//m.360buyimg.com/mobilecms/s150x150_jfs/t1/38988/36/7707/54292/5cefa2b0E1cce5cfa/64e76ed6c67568bf.png!q70.jpg.dpg'
+                            icon:'//m.360buyimg.com/mobilecms/s150x150_jfs/t1/38988/36/7707/54292/5cefa2b0E1cce5cfa/64e76ed6c67568bf.png!q70.jpg.dpg'
                         },
                         {
                             text:'美妆爆品',
-                            img:'//m.360buyimg.com/mobilecms/s150x150_jfs/t1/71612/30/758/62076/5cefa5a6E2494c8c2/13aac3e0bb1b4e55.png!q70.jpg.dpg'
+                            icon:'//m.360buyimg.com/mobilecms/s150x150_jfs/t1/71612/30/758/62076/5cefa5a6E2494c8c2/13aac3e0bb1b4e55.png!q70.jpg.dpg'
                         },
                         {
                             text:'美妆爆品',
-                            img:'//m.360buyimg.com/mobilecms/s150x150_jfs/t1/38988/36/7707/54292/5cefa2b0E1cce5cfa/64e76ed6c67568bf.png!q70.jpg.dpg'
+                            icon:'//m.360buyimg.com/mobilecms/s150x150_jfs/t1/38988/36/7707/54292/5cefa2b0E1cce5cfa/64e76ed6c67568bf.png!q70.jpg.dpg'
                         },
                         {
                             text:'美妆爆品',
-                            img:'//m.360buyimg.com/mobilecms/s150x150_jfs/t1/71612/30/758/62076/5cefa5a6E2494c8c2/13aac3e0bb1b4e55.png!q70.jpg.dpg'
+                            icon:'//m.360buyimg.com/mobilecms/s150x150_jfs/t1/71612/30/758/62076/5cefa5a6E2494c8c2/13aac3e0bb1b4e55.png!q70.jpg.dpg'
                         }
                     ]
                 }
@@ -287,7 +288,7 @@ class Home extends React.Component {
                     infinite
                     afterChange={index => this.setState({ slideIndex: index })}
                     >
-                    {(this.state.searchValue.slice(0,Math.floor(this.state.searchValue.length/2))).map((value,index) => (
+                    {this.state.lists.map((val,index) => (
                         <Flex key={index}
                         style={{
                             position: 'relative',
@@ -296,7 +297,7 @@ class Home extends React.Component {
                         }}>
                             <Flex.Item>
                                 <img
-                                    src={this.state.searchValue[2*index].img}
+                                    src={val.prods[0].icon}
                                     alt=""
                                     style={{ width: '100%', verticalAlign: 'top' }}
                                     onLoad={() => {
@@ -307,7 +308,7 @@ class Home extends React.Component {
                             </Flex.Item>
                             <Flex.Item>
                                 <img
-                                    src={this.state.searchValue[2*index+1].img}
+                                    src={val.prods[1].icon}
                                     alt=""
                                     style={{ width: '100%', verticalAlign: 'top' }}
                                     onLoad={() => {
@@ -322,7 +323,7 @@ class Home extends React.Component {
                 </div>
                 <WhiteSpace size="lg"/>
                 <WingBlank size="md">
-                <Flex wrap="wrap">
+                <Flex wrap="wrap" style={{width:'100%'}}>
                     {
                         this.state.lists.map((val,i)=>(
                             <div style={{width:'50%'}} key={i}>
@@ -335,16 +336,51 @@ class Home extends React.Component {
                                 </div>
                                 <Flex>
                                     <div style={{width:'50%',padding: '5px'}}>
-                                        <img src={val.prods[0].img} alt="" style={{width:'100%'}} />
+                                        <img src={val.prods[0].icon} alt="" style={{width:'100%'}} />
                                     </div>
                                     <div style={{width:'50%',padding: '5px'}}>
-                                        <img src={val.prods[1].img} alt="" style={{width:'100%'}} />    
+                                        <img src={val.prods[1].icon} alt="" style={{width:'100%'}} />    
                                     </div>
                                 </Flex>
                             </div> 
                         ))
                     }
+                    
+                    <NoticeBar mode="link" action={<span>去看看</span>} style={{width:'100%'}}>
+                        <Carousel className="my-carousel"
+                        vertical
+                        dots={false}
+                        dragging={false}
+                        swiping={false}
+                        autoplay
+                        infinite
+                        >
+                        {
+                            this.state.searchValue.map((v) => {
+                                return (
+                                    <div className="v-item" key={v.title}>{v.title}</div>
+                                )
+                            })
+                        }
+                        </Carousel>
+
+                    </NoticeBar>  
+
                 </Flex>
+                </WingBlank>
+                <WhiteSpace size="lg"/>
+                <WingBlank size="md">
+                {
+                    this.state.lists.map((val,i)=>(
+                        i<2 && (
+                        <Fragment key={i}>
+                            <div style={{textAlign:'center',fontWeight:'bold',marginTop:'10px'}}>{val.title}</div>
+                            <Grid data={val.prods} hasLine={false} square={false} className="not-square-grid" />
+                        </Fragment>
+                        )
+                    ))
+                }
+                
                 </WingBlank>
             </div>
         )

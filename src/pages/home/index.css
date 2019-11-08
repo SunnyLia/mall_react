@@ -15,13 +15,21 @@
     padding: 0 7px;
     background: #fff;
 }
-
+.hotNews{
+	width: 100%;
+    height: 32px;
+    border-radius: 16px;
+    padding: 0 7px;
+    background: #fff;
+}
 .my-carousel .v-item {
     height: 32px;
     line-height: 32px;
     padding-left: 10px;
 }
-
+.am-notice-bar-marquee{
+	width: 100%
+}
 .am-tabs-default-bar{
     background-color:transparent !important;
 }
@@ -75,6 +83,9 @@ html:not([data-scale]) .am-grid.am-grid-line .am-flexbox .am-flexbox-item:first-
     padding: 0 5px;
 	border-radius: 12px;
 	font-size: 12px;
+}
+.am-grid .am-flexbox .am-flexbox-item.am-grid-item{
+	padding: 0 5px;
 }
 @keyframes upAnimation {
 	0% {
