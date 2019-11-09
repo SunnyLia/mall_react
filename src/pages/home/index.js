@@ -1,6 +1,7 @@
 import React ,{Fragment} from 'react';
 import { Flex, WingBlank, WhiteSpace, Carousel, Tabs ,Grid ,NoticeBar} from 'antd-mobile';
 import "./index.css"
+import {getHomeItems} from '../../redux/action';
 
 class Home extends React.Component {
     constructor(props) {
@@ -190,6 +191,7 @@ class Home extends React.Component {
         }
     }
     componentDidMount() {
+        getHomeItems()
         // var to = new Date('2019, 11, 12, 00, 00, 00'); //月份是从0开始的
         var to = new Date('2019/11/12 00:00:00');
  
@@ -391,7 +393,7 @@ class Home extends React.Component {
                         this.state.lists.map((v,i)=>(
                             v.prods.map((val,ind)=>(
                                 <div key={i+""+ind} className="listItem">
-                                    <a>
+                                    <a href="http://www.alipay.com">
                                     <img src={val.icon} style={{width:'100%'}} alt=""/>
                                     <WingBlank size="md">
                                         <div className="textWords">
