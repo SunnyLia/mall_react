@@ -32,7 +32,24 @@ app.get('/homeItems', function (req, res) {
     result = Mock.mock(jsonData.homeItems);
     res.end(JSON.stringify(result));
 })
-
+// 1、首页列表
+app.get('/homeLists', function (req, res) {
+  var result = {};
+  result = Mock.mock(jsonData.homeLists);
+  res.end(JSON.stringify(result));
+})
+// 1、首页TAB 
+app.get('/homeTabs', function (req, res) {
+  var result = {};
+  result = Mock.mock(jsonData.homeTabs);
+  res.end(JSON.stringify(result)); 
+})
+// 1、首页轮播 
+app.get('/carousel', function (req, res) {
+  var result = {};
+  result = Mock.mock(jsonData.carousel);
+  res.end(JSON.stringify(result)); //carousel
+})
 // 监听3000端口
 const server = app.listen(8080, function () {
 	console.log('listening at =====> http://127.0.0.1:8080...');

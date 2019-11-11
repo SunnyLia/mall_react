@@ -3,7 +3,9 @@ import * as types from './action-types';
 let initState = {
     isLogin: false, 
     homeItems:[],
-    homeLists:[]
+    homeLists:[],
+    homeTabs:[],
+    carousel:[]
 }
 
 const todos = (state = initState, action) => {
@@ -14,10 +16,6 @@ const todos = (state = initState, action) => {
           isLogin: action.payload
         }
       case types.HOME_ITEMS:
-        console.log({
-          ...state,
-          homeItems: action.payload
-        })
         return {
           ...state,
           homeItems: action.payload
@@ -26,6 +24,16 @@ const todos = (state = initState, action) => {
         return {
           ...state,
           homeLists: action.payload
+        }
+      case types.HOME_TABS:
+        return {
+          ...state,
+          homeTabs: action.payload
+        }
+      case types.CAROUSEL:
+        return {
+          ...state,
+          carousel: action.payload
         }
       default:
         return state

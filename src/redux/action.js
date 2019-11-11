@@ -20,3 +20,42 @@ export function getHomeItems() {
     })
   }
 }
+
+export function getHomeLists() {
+  return dispatch=> {
+    return fetch(serverUrl+"/homeLists")
+    .then(response => response.json())
+    .then(result => {
+      dispatch({
+        type: types.HOME_LISTS,
+        payload: result.data
+      });
+    })
+  }
+}
+
+export function getHomeTabs() {
+  return dispatch=> {
+    return fetch(serverUrl+"/homeTabs")
+    .then(response => response.json())
+    .then(result => {
+      dispatch({
+        type: types.HOME_TABS,
+        payload: result.data
+      });
+    })
+  }
+}
+
+export function getCarousel() {
+  return dispatch=> {
+    return fetch(serverUrl+"/carousel")
+    .then(response => response.json())
+    .then(result => {
+      dispatch({
+        type: types.CAROUSEL,
+        payload: result.data
+      });
+    })
+  }
+}
