@@ -29,7 +29,7 @@ app.all('*',function (req, res, next) {
 // 1、首页专题
 app.get('/homeItems', function (req, res) {
     var result = {};
-    result = Mock.mock(jsonData.contractList);
+    result = Mock.mock(jsonData.homeItems);
     res.end(JSON.stringify(result));
 })
 
