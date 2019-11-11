@@ -7,27 +7,16 @@ export const setLogin = flag => {
     payload: flag
   }
 }
-// export const getHomeItems = () => {
-//   return function (dispatch) {
-//       fetch(serverUrl+"/homeItems").then(result => {
-//         let data = result.homeItems.data;
-//         dispatch({
-//           type: types.HOME_ITEMS,
-//           payload: data
-//         });
-//     });
-//   } 
-// }
+
 export function getHomeItems() {
-  return function (dispatch) {
+  return dispatch=> {
     return fetch(serverUrl+"/homeItems")
     .then(response => response.json())
     .then(result => {
-            let data = result.homeItems.data;
-            dispatch({
-              type: types.HOME_ITEMS,
-              payload: data
-            });
-        });
+      dispatch({
+        type: types.HOME_ITEMS,
+        payload: result.data
+      });
+    })
   }
 }

@@ -14,14 +14,18 @@ const todos = (state = initState, action) => {
           isLogin: action.payload
         }
       case types.HOME_ITEMS:
+        console.log({
+          ...state,
+          homeItems: action.payload
+        })
         return {
           ...state,
-          isLogin: action.payload
+          homeItems: action.payload
         }
       case types.HOME_LISTS:
         return {
           ...state,
-          isLogin: action.payload
+          homeLists: action.payload
         }
       default:
         return state

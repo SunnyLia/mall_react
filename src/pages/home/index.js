@@ -1,4 +1,5 @@
 import React ,{Fragment} from 'react';
+import { connect } from 'react-redux';
 import { Flex, WingBlank, WhiteSpace, Carousel, Tabs ,Grid ,NoticeBar} from 'antd-mobile';
 import "./index.css"
 import {getHomeItems} from '../../redux/action';
@@ -191,7 +192,8 @@ class Home extends React.Component {
         }
     }
     componentDidMount() {
-        getHomeItems()
+        this.props.getHomeItems()
+        
         // var to = new Date('2019, 11, 12, 00, 00, 00'); //月份是从0开始的
         var to = new Date('2019/11/12 00:00:00');
  
@@ -279,7 +281,7 @@ class Home extends React.Component {
                 </Carousel>
                 {/* 宫格 */}
                 <WingBlank size="md">
-                    <Grid data={this.state.tabs} isCarousel columnNum = "5" dotStyle={dotStyles} hasLine="false"/>
+                    <Grid data={this.state.tabs} isCarousel columnNum = "5" hasLine="false"/>
                 </WingBlank>
                 <WhiteSpace size="lg"/>
                 <div style={{paddingTop: '12px',overflow: 'hidden'}}>
@@ -419,7 +421,10 @@ class Home extends React.Component {
         )
     }
 }
-export default Home;
-const dotStyles={
-
+const mapStateToProps = (state, ownProps) => {
+    return { homeItems: state.todos.homeItems }
+  }
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return { getHomeItems: () => dispatch(getHomeItems()) }
 }
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
