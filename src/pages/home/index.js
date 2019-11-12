@@ -109,7 +109,7 @@ class Home extends React.Component {
                         this.props.homeTabs && <Grid data={this.props.homeTabs} isCarousel columnNum = "5" hasLine="false" className="homeTabs"/>
                     }
                 </WingBlank>
-                <WhiteSpace size="lg"/>
+                <WhiteSpace size="sm"/>
                 <div style={{paddingTop: '12px',overflow: 'hidden'}}>
                     <Carousel className="space-carousel"
                     frameOverflow="visible"
@@ -129,7 +129,7 @@ class Home extends React.Component {
                         }}>
                             <Flex.Item>
                                 <img
-                                    src={this.props.carousel[index].img1}
+                                    src={this.props.carousel[2*index].img1}
                                     alt=""
                                     style={{ width: '100%', verticalAlign: 'top' }}
                                     onLoad={() => {
@@ -140,7 +140,7 @@ class Home extends React.Component {
                             </Flex.Item>
                             <Flex.Item>
                                 <img
-                                    src={this.props.carousel[index+1].img1}
+                                    src={this.props.carousel[2*index+1].img1}
                                     alt=""
                                     style={{ width: '100%', verticalAlign: 'top' }}
                                     onLoad={() => {

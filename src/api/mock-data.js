@@ -125,17 +125,17 @@ module.exports = {
 			{ 
 				title: "气质连衣裙" ,
 				img:"//img.alicdn.com/tfs/TB13JTBlkY2gK0jSZFgXXc5OFXa-1500-530.jpg_760x760Q90s50.jpg_.webp",    
-				img1:"//m.360buyimg.com/mobilecms/s250x200_jfs/t1/96952/7/1915/101741/5dc808a9E942f7154/ebafdbf866bb49bf.png!q70.jpg.dpg", 
+				img1:"//m.360buyimg.com/mobilecms/s250x200_jfs/t1/52482/25/15636/56531/5dc955c2Eb61e419a/b6723ac750e44a0c.jpg!q70.jpg.dpg", 
 			},
 			{ 
 				title: "秋冬男士气质穿搭" ,
 				img: "//img.alicdn.com/tfs/TB1WxT2loH1gK0jSZSyXXXtlpXa-1500-530.jpg_760x760Q90s50.jpg_.webp",    
-				img1:"//m.360buyimg.com/mobilecms/s250x200_jfs/t1/83366/28/14885/28143/5dc4279aE64b04a29/e051045384823b9c.png!q70.jpg.dpg", 
+				img1:"//m.360buyimg.com/mobilecms/s250x200_jfs/t1/90097/3/2013/77387/5dc96d38E1ece28fa/d615b7a974ed0ad5.jpg!q70.jpg.dpg", 
 			},
 			{ 
 				title: "气质连衣裙" ,
 				img:"//img.alicdn.com/tfs/TB13JTBlkY2gK0jSZFgXXc5OFXa-1500-530.jpg_760x760Q90s50.jpg_.webp",    
-				img1:"//m.360buyimg.com/mobilecms/s250x200_jfs/t1/99317/30/1706/30055/5dc3ecb5E656a29d6/069990ea4859204e.png!q70.jpg.dpg", 
+				img1:"//m.360buyimg.com/mobilecms/s250x200_jfs/t1/94011/22/2043/31937/5dc9524eEc86619b7/102214909026f1a7.png!q70.jpg.dpg", 
 			}
 		]
 	}
