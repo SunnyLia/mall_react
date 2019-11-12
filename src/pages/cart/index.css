@@ -3,4 +3,33 @@
     width: 100%;
     height: 40px;
     bottom: 50px;
+    border-top: 1PX solid #ddd;
+    background: #fff;
+}
+.wordExp{
+    margin-left: 10px;
+    font-size: 15px;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.am-list-item.am-list-item-active{
+    background-color: transparent!important;
+}
+.numCut{
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: center
+}
+.numCut span{
+    width: 20px;
+    display: inline-block;
+}
+.am-checkbox-inner{
+    width: 18px!important;
+    height: 18px!important;
 }

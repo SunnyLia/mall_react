@@ -144,12 +144,12 @@ module.exports = {
 		"code": "200",
 		"state": "ok",
 		"data|2-5": [{
-			"title":"@ctitle(3,10)",
+			"title":"@ctitle(3,8)",
 			"select":false,
 			"items|1-3":[
 				{
 					"title":"@cparagraph",
-					"img":"@image('200x200')",
+					"img":"@image('200x200','@color')",
 					"price|1-5000":1,
 					"select":false,
 					"number":1,
