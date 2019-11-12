@@ -60,7 +60,7 @@ export function getCarousel() {
   }
 }
 
-export function getCartLists() {
+export function getCartLists(callback) {
   return dispatch=> {
     return fetch(serverUrl+"/cartList")
     .then(response => response.json())
@@ -69,6 +69,7 @@ export function getCartLists() {
         type: types.CART_LISTS,
         payload: result.data
       });
+      callback()
     })
   }
 }

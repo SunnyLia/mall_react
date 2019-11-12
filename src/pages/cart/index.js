@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { List, Checkbox, Flex, Button, WhiteSpace } from 'antd-mobile';
+import { Checkbox, Flex, Button, WhiteSpace } from 'antd-mobile';
 import { getCartLists } from '../../redux/action';
 import './index.css';
 const CheckboxItem = Checkbox.CheckboxItem;
@@ -8,18 +8,59 @@ const AgreeItem = Checkbox.AgreeItem;
 class Cart extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { allSelect: false, totalMoney: 0, totalNum: 0 }
+        this.state = { allSelect: false, totalMoney: 0, totalNum: 0, data: [] }
     }
     componentDidMount() {
-        this.props.getCartLists()
+        this.props.getCartLists(() => {
+            this.setState({ data: this.props.cartLists })
+        })
+    }
+    //所有店铺全选
+    getAllTotalMoney(e) {
+        let list = this.state.data;
+        let checked = e.target.checked
+        let newData = list.map(v => {
+            let newItem = v.items.map(val => {
+                return { ...val, select: checked }
+            })
+            return { ...v, select: checked, items: newItem }
+        });
+        this.setState({ data: newData })
+    }
+    //店铺全选
+    getTotalMoney(e, i) {
+        let list = this.state.data;
+        let checked = e.target.checked
+        let newData = list.map((v, ind) => {
+            if (ind == i) {
+                let newItem = v.items.map(val => {
+                    return { ...val, select: checked }
+                })
+                return { ...v, select: checked, items: newItem }
+            } else {
+                return v
+            }
+        });
+        this.setState({ data: newData })
+    }
+    //校验全选
+    checkAll() {
+        let flag = true;
+        let list = this.state.data;
+        list.map((val, ind) => {
+            if(val.select == false){
+                flag = false;
+            }
+        })
+        this.setState({ allSelect: flag })
     }
     render() {
         return (
             <div className="cartList" style={{ paddingBottom: "90px" }}>
                 {
-                    this.props.cartLists && this.props.cartLists.map((v, i) => (
+                    this.state.data && this.state.data.map((v, i) => (
                         <div key={i}>
-                            <CheckboxItem checked={v.select}>{v.title}</CheckboxItem>
+                            <CheckboxItem checked={v.select} onChange={e => this.getTotalMoney(e, i)}>{v.title}</CheckboxItem>
                             {
                                 v.items.map((val, ind) => (
                                     <div key={i + "" + ind}>
@@ -48,7 +89,7 @@ class Cart extends React.Component {
                 }
 
                 <Flex justify="between" className="cartBot">
-                    <AgreeItem data-seed="logId" onChange={e => console.log('checkbox', e)}>全选</AgreeItem>
+                    <AgreeItem onChange={e => this.getAllTotalMoney(e)}>全选</AgreeItem>
                     <div>
                         {
                             this.state.totalNum > 0 && (
@@ -73,7 +114,7 @@ const mapStateToProps = (state, ownProps) => {
 }
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        getCartLists: () => dispatch(getCartLists())
+        getCartLists: (id) => dispatch(getCartLists(id))
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Cart)

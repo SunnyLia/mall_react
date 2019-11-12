@@ -150,7 +150,7 @@ module.exports = {
 				{
 					"title":"@cparagraph",
 					"img":"@image('200x200','@color')",
-					"price|1-5000":1,
+					"price|1-5000.2":1,
 					"select":false,
 					"number":1,
 					"attribute|1":[
