@@ -46,15 +46,22 @@ class Cart extends React.Component {
         this.checkAll(newData)
     }
     //商品选择
-    getMoney(e, i ,ind1) {
+    getMoney(e, i, ind1) {
         let list = this.state.data;
         let checked = e.target.checked
         let newData = list.map((v, ind) => {
             if (ind == i) { //被选商铺
-                let newItem = v.items.map((val,index) => {
-                    return { ...val, select: checked }
+                let flag = true; //只要有一个商品未被选中，店铺不能选中
+                let newItem = v.items.map((val, index) => {
+                    if (index == ind1) {//被选商品
+                        if (checked == false) { flag = false }
+                        return { ...val, select: checked }
+                    } else {
+                        if (val.select == false) { flag = false }
+                        return val
+                    }
                 })
-                return { ...v, select: checked, items: newItem }
+                return { ...v, select: flag, items: newItem }
             } else {
                 return v
             }
@@ -82,7 +89,7 @@ class Cart extends React.Component {
                             {
                                 v.items.map((val, ind) => (
                                     <div key={i + "" + ind}>
-                                        <CheckboxItem checked={val.select} onChange={e => this.getMoney(e,i ,ind)}>
+                                        <CheckboxItem checked={val.select} onChange={e => this.getMoney(e, i, ind)}>
                                             <Flex justify="between">
                                                 <div>
                                                     <img style={{ height: "75px", width: "75px" }} src={val.img} />
