@@ -39,7 +39,15 @@ const todos = (state = initState, action) => {
         return state
     }
   }
-
+  const cart = (state = [], action) => {
+    switch (action.type) {
+      case types.CART_LISTS:
+        return action.payload
+      default:
+        return state
+    }
+  }
 export default combineReducers({
-    todos
+    todos,
+    cart
 })

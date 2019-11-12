@@ -50,6 +50,12 @@ app.get('/carousel', function (req, res) {
   result = Mock.mock(jsonData.carousel);
   res.end(JSON.stringify(result)); //carousel
 })
+// 2、购物车列表 
+app.get('/cartList', function (req, res) {
+  var result = {};
+  result = Mock.mock(jsonData.cartLists);
+  res.end(JSON.stringify(result)); //carousel
+})
 // 监听3000端口
 const server = app.listen(8080, function () {
 	console.log('listening at =====> http://127.0.0.1:8080...');

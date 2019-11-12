@@ -1,11 +1,32 @@
 import React from 'react';
-
-class Cart extends React.Component{
-    render (){
+import { connect } from 'react-redux';
+import { List, Checkbox, Flex } from 'antd-mobile';
+import {getCartLists} from '../../redux/action';
+import './index.css';
+const CheckboxItem = Checkbox.CheckboxItem;
+const AgreeItem = Checkbox.AgreeItem;
+class Cart extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {allSelect: false}
+    }
+    componentDidMount() {
+        this.props.getCartLists()
+    }
+    render() {
         return (
-            <div >cart111</div>
+            <div className="cartList">
+                <div className="cartBot">111111111111111111</div>
+            </div>
         )
     }
-    
 }
-export default  Cart;
+const mapStateToProps = (state, ownProps) => {
+    return {cartLists: state.cart}
+  }
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return { 
+        getCartLists: () => dispatch(getCartLists())
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Cart)

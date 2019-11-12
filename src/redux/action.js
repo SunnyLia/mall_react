@@ -59,3 +59,16 @@ export function getCarousel() {
     })
   }
 }
+
+export function getCartLists() {
+  return dispatch=> {
+    return fetch(serverUrl+"/cartList")
+    .then(response => response.json())
+    .then(result => {
+      dispatch({
+        type: types.CART_LISTS,
+        payload: result.data
+      });
+    })
+  }
+}

@@ -138,6 +138,30 @@ module.exports = {
 				img1:"//m.360buyimg.com/mobilecms/s250x200_jfs/t1/94011/22/2043/31937/5dc9524eEc86619b7/102214909026f1a7.png!q70.jpg.dpg", 
 			}
 		]
-	}
+	},
+	'cartLists':	{
+		"msg": "操作成功",
+		"code": "200",
+		"state": "ok",
+		"data|2-5": [{
+			"title":"@ctitle(3,10)",
+			"select":false,
+			"items|1-3":[
+				{
+					"title":"@cparagraph",
+					"img":"@image('200x200')",
+					"price|1-5000":1,
+					"select":false,
+					"number":1,
+					"attribute|1":[
+						["红色","白色","黑色","蓝色","绿色"],
+						["xxl","xl","l","m","s"],
+						["50ml","100ml","150ml","200ml","500ml"],
+						["#17 1w1 象牙白","#36 1w2 自然肤色","#62 2c0 自然偏白","#66 1c1 均匀白皙","#82 2w0 深肤色"]
+					]
+				}
+			]
+		}]
+	},
  }
  
