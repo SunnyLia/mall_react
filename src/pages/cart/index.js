@@ -15,7 +15,7 @@ class Cart extends React.Component {
             this.setState({ data: this.props.cartLists })
         })
     }
-    //所有店铺全选
+    //店铺总选
     getAllTotalMoney(e) {
         let list = this.state.data;
         let checked = e.target.checked
@@ -26,6 +26,7 @@ class Cart extends React.Component {
             return { ...v, select: checked, items: newItem }
         });
         this.setState({ data: newData })
+        this.checkAll(newData)
     }
     //店铺全选
     getTotalMoney(e, i) {
@@ -42,13 +43,30 @@ class Cart extends React.Component {
             }
         });
         this.setState({ data: newData })
+        this.checkAll(newData)
+    }
+    //商品选择
+    getMoney(e, i ,ind1) {
+        let list = this.state.data;
+        let checked = e.target.checked
+        let newData = list.map((v, ind) => {
+            if (ind == i) { //被选商铺
+                let newItem = v.items.map((val,index) => {
+                    return { ...val, select: checked }
+                })
+                return { ...v, select: checked, items: newItem }
+            } else {
+                return v
+            }
+        });
+        this.setState({ data: newData })
+        this.checkAll(newData)
     }
     //校验全选
-    checkAll() {
+    checkAll(data) {
         let flag = true;
-        let list = this.state.data;
-        list.map((val, ind) => {
-            if(val.select == false){
+        data.map((val, ind) => {
+            if (val.select == false) {
                 flag = false;
             }
         })
@@ -64,7 +82,7 @@ class Cart extends React.Component {
                             {
                                 v.items.map((val, ind) => (
                                     <div key={i + "" + ind}>
-                                        <CheckboxItem checked={val.select}>
+                                        <CheckboxItem checked={val.select} onChange={e => this.getMoney(e,i ,ind)}>
                                             <Flex justify="between">
                                                 <div>
                                                     <img style={{ height: "75px", width: "75px" }} src={val.img} />
@@ -89,7 +107,7 @@ class Cart extends React.Component {
                 }
 
                 <Flex justify="between" className="cartBot">
-                    <AgreeItem onChange={e => this.getAllTotalMoney(e)}>全选</AgreeItem>
+                    <AgreeItem checked={this.state.allSelect} onChange={e => this.getAllTotalMoney(e)}>全选</AgreeItem>
                     <div>
                         {
                             this.state.totalNum > 0 && (
