@@ -112,7 +112,7 @@ class Cart extends React.Component {
     }
     render() {
         return (
-            <div className="cartList" style={{ paddingBottom: "90px" }}>
+            <div className="cartList" style={{ paddingBottom: "90px" }}> 
                 {
                     this.state.data && this.state.data.map((v, i) => (
                         <div key={i}>

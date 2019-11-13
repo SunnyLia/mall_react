@@ -1,4 +1,4 @@
-import React ,{Fragment} from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { Flex, WingBlank, WhiteSpace, Carousel, Tabs ,Grid ,NoticeBar} from 'antd-mobile';
 import "./index.css"
@@ -7,7 +7,7 @@ import {getHomeItems,getHomeLists,getHomeTabs,getCarousel} from '../../redux/act
 class Home extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {imgHeight: 176}
+        this.state = {imgHeight: 176 ,slideIndex:0}
     }
     componentDidMount() {
         this.props.getHomeItems()
@@ -19,7 +19,8 @@ class Home extends React.Component {
     }
     timeInterval() {
         // var to = new Date('2019, 11, 12, 00, 00, 00'); //月份是从0开始的
-        var to = new Date('2019/11/12 00:00:00');
+        var d = (new Date()).getDate()+1;
+        var to = new Date(`2019/11/${d} 00:00:00`);
  
         function antitime() {
             var now = new Date();
