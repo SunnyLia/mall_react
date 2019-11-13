@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Checkbox, Flex, Button, WhiteSpace, Stepper,Toast } from 'antd-mobile';
+import { Checkbox, Flex, Button, WhiteSpace, Stepper } from 'antd-mobile';
 import { getCartLists } from '../../redux/action';
 import './index.css';
 const CheckboxItem = Checkbox.CheckboxItem;
@@ -17,9 +17,8 @@ class Cart extends React.Component {
     }
     //所有总选
     getAllTotalMoney(e) {
-        let list = this.state.data;
         let checked = e.target.checked
-        let newData = list.map(v => {
+        let newData = this.state.data.map(v => {
             let newItem = v.items.map(val => {
                 return { ...val, select: checked }
             })
@@ -30,9 +29,8 @@ class Cart extends React.Component {
     }
     //店铺全选
     getTotalMoney(e, i) {
-        let list = this.state.data;
         let checked = e.target.checked
-        let newData = list.map((v, ind) => {
+        let newData = this.state.data.map((v, ind) => {
             if (ind === i) {
                 let newItem = v.items.map(val => {
                     return { ...val, select: checked }
@@ -47,9 +45,8 @@ class Cart extends React.Component {
     }
     //商品选择
     getMoney(e, i, ind1) {
-        let list = this.state.data;
         let checked = e.target.checked
-        let newData = list.map((v, ind) => {
+        let newData = this.state.data.map((v, ind) => {
             if (ind === i) { //被选商铺
                 let flag = true; //只要有一个商品未被选中，店铺不能选中
                 let newItem = v.items.map((val, index) => {
@@ -72,17 +69,31 @@ class Cart extends React.Component {
     //校验全选
     checkAll(data) {
         let flag = true;
-        data.map((val, ind) => {
+        data.forEach((val, ind) => {
             if (val.select === false) {
                 flag = false;
             }
         })
         this.setState({ allSelect: flag })
+        this.getNumAndMon(data)
+    }
+    //计算总数及总价
+    getNumAndMon(data) {
+        let allNum = 0;
+        let allMon = 0
+        data.forEach((v, i) => {
+            v.items.forEach((val, ind) => {
+                if (val.select) { //如果当前店铺商品被选中
+                    allNum += 1;
+                    allMon += val.price * val.number;
+                }
+            })
+        }); 
+        this.setState({ totalMoney: allMon, totalNum: allNum })
     }
     //加减库存
-    changeStock(i1,ind1,num){
-        let list = this.state.data;
-        let newData = list.map((v, i) => {
+    changeStock(i1, ind1, num) {
+        let newData = this.state.data.map((v, i) => {
             if (i === i1) { //被选商铺
                 let newItem = v.items.map((val, ind) => {
                     if (ind === ind1) {//被选商品
@@ -97,6 +108,7 @@ class Cart extends React.Component {
             }
         });
         this.setState({ data: newData })
+        this.getNumAndMon(newData)
     }
     render() {
         return (
@@ -119,12 +131,12 @@ class Cart extends React.Component {
                                                     <Flex justify="between">
                                                         <div style={{ color: 'red', marginLeft: "10px" }}>￥{val.price}.00</div>
                                                         <Stepper
-                                                            style={{ width:'100px' }}
+                                                            style={{ width: '100px' }}
                                                             showNumber
                                                             max={val.stock}
                                                             min={1}
                                                             value={val.number}
-                                                            onChange={(num)=>{this.changeStock(i,ind,num)}}
+                                                            onChange={(num) => { this.changeStock(i, ind, num) }}
                                                         />
                                                     </Flex>
                                                 </div>
@@ -144,7 +156,7 @@ class Cart extends React.Component {
                         {
                             this.state.totalNum > 0 && (
                                 <div style={{ display: 'inline-block', verticalAlign: 'middle' }}>总计:
-                                <span style={{ color: 'red', marginRight: '10px' }}>￥{this.state.totalMoney}</span>
+                                <span style={{ color: 'red', marginRight: '10px' }}>￥{this.state.totalMoney}.00</span>
                                 </div>
                             )
                         }
